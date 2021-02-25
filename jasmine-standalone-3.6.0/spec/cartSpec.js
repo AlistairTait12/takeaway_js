@@ -36,7 +36,9 @@ describe('Cart', function() {
       cart.receive(dish3);
     }
 
-    console.log(cart.contents);
+    var singles = [...new Set(cart.contents)];
+
+    console.log(singles);
 
     expect(cart.displayOrder()).toEqual(["Kiev: 5", "Margherita: 3"]);
   });

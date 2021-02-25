@@ -19,4 +19,9 @@ class Cart {
     let priceAsString = this._totalPrice().toString();
     return "£" + priceAsString.substring(0, priceAsString.length - 2) + "." + priceAsString.substring(priceAsString.length - 2);
   }
+
+  displayOrder() {
+    // creates an array of each unique dish
+    let uniqueDishNames = [...new Set(this.contents)];
+  }
 }
