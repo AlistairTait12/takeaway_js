@@ -7,16 +7,19 @@ class Cart {
     this.contents.push(dish);
   }
 
-  remove(dishName){
-    let removeAtIndex = 0;
-    this.contents.forEach((dish) => {
-      if (dish.name === dishName) {
-        this.contents.splice(removeAtIndex, 1);
-        return;
-      } else {
-        removeAtIndex ++;
+  remove(dishNameString) {
+    let removeAt;
+    let found = false;
+    for (let element = 0; element < this.contents.length; element ++) {
+      if (this.contents[element].name === dishNameString) {
+        removeAt = element;
+        found = true;
       }
-    });
+    }
+
+    if (found) {
+      this.contents.splice(removeAt, 1);
+    }
   }
 
   _totalPrice() {
