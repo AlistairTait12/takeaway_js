@@ -20,6 +20,15 @@ describe('Cart', function() {
     expect(cart.contents[0].displayPrice()).toEqual("£8.00");
   });
 
+  it('can remove an item', function() {
+    cart.add(fourSeasons);
+    cart.add(kiev);
+    cart.add(margherita);
+    cart.remove('Kiev');
+    console.log(cart.displayOrder());
+    expect(cart.displayOrder()).toEqual({'Four Seasons': 1, 'Margherita': 1, total: "£14.50"});
+  });
+
   it('totals up the contents of the cart', function() {
     cart.add(kiev);
     cart.add(fourSeasons);
