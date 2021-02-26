@@ -14,26 +14,26 @@ describe('Cart', function() {
     expect(cart.contents).toEqual([]);
   });
 
-  it('can receive an item', function() {
-    cart.receive(kiev);
+  it('can add an item', function() {
+    cart.add(kiev);
     expect(cart.contents[0].name).toEqual("Kiev");
     expect(cart.contents[0].displayPrice()).toEqual("£8.00");
   });
 
   it('totals up the contents of the cart', function() {
-    cart.receive(kiev);
-    cart.receive(fourSeasons);
-    cart.receive(margherita);
+    cart.add(kiev);
+    cart.add(fourSeasons);
+    cart.add(margherita);
     expect(cart.displayTotalPrice()).toEqual("£22.50");
   });
 
   it('displays names of dishes and their quantities', function() {
     for (let i = 0; i < 5; i++) {
-      cart.receive(kiev);
+      cart.add(kiev);
     }
 
     for (let i = 0; i < 3; i++) {
-      cart.receive(margherita);
+      cart.add(margherita);
     }
 
     expect(cart.displayOrder()).toEqual({Kiev: 5, Margherita: 3, total: "£59.50"});

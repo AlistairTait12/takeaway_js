@@ -3,7 +3,7 @@ class Cart {
     this.contents = contents;
   }
 
-  receive(dish) {
+  add(dish) {
     this.contents.push(dish);
   }
 
