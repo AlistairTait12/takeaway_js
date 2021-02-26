@@ -6,13 +6,19 @@ $(document).ready(function() {
 
   var menu = [peperoni, bbqChicken, tomatoAndBasil];
 
-  displayInfo(peperoni);
-  displayInfo(bbqChicken);
-  displayInfo(tomatoAndBasil);
+  displayMenu(peperoni);
+  displayMenu(bbqChicken);
+  displayMenu(tomatoAndBasil);
 
-  function displayInfo(item) {
+  updateOrder();
+  
+  function displayMenu(item) {
     $('#' + item.name.replace(/\s+/g, '') + 'Header').text(item.name);
     $('#' + item.name.replace(/\s+/g, '') + 'Descr').text(item.description);
     $('#' + item.name.replace(/\s+/g, '') + 'Price').text(item.displayPrice());
   };
+
+  function updateOrder() {
+    $('#order').text(cart.displayOrder());
+  }
 });
