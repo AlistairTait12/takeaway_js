@@ -21,7 +21,15 @@ class Cart {
   }
 
   displayOrder() {
-    // creates an array of each unique dish
-    let uniqueDishNames = [...new Set(this.contents)];
+    let order = {};
+    this.contents.forEach((dish) => {
+      if(dish.name in order) {
+        order[dish.name] += 1;
+      } else {
+        order[dish.name] = 1;
+      }
+    });
+    order['total'] = this.displayTotalPrice();
+    return order;
   }
 }

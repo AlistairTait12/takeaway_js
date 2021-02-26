@@ -35,12 +35,8 @@ describe('Cart', function() {
     for (let i = 0; i < 3; i++) {
       cart.receive(dish3);
     }
-
-    var singles = [...new Set(cart.contents)];
-
-    console.log(singles);
-
-    expect(cart.displayOrder()).toEqual(["Kiev: 5", "Margherita: 3"]);
+    console.log(cart.displayOrder());
+    expect(cart.displayOrder()).toEqual({Kiev: 5, Margherita: 3, total: "£59.50"});
   });
 
 });
