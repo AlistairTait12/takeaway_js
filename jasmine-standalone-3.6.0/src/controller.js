@@ -11,7 +11,7 @@ $(document).ready(function() {
   displayMenu(tomatoAndBasil);
 
   updateOrder();
-  
+
   function displayMenu(item) {
     $('#' + item.name.replace(/\s+/g, '') + 'Header').text(item.name);
     $('#' + item.name.replace(/\s+/g, '') + 'Descr').text(item.description);
@@ -19,6 +19,6 @@ $(document).ready(function() {
   };
 
   function updateOrder() {
-    $('#order').text(cart.displayOrder());
+    $('#orderTotal').text(cart.displayOrder().total);
   }
 });
